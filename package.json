@@ -1,8 +1,15 @@
 {
   "name": "todo",
   "version": "0.1.0",
-  "homepage": "https://takakimiyajima.github.io/todo-assessment",
+  "homepage": "https://takakimiyajima.github.io/react-for-test",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "deploy": "yarn build && gh-pages -d build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -18,12 +25,10 @@
     "typescript": "^4.7.4",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "deploy": "yarn build && gh-pages -d build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.3",
+    "cross-env": "^7.0.3",
+    "gh-pages": "^4.0.0"
   },
   "eslintConfig": {
     "extends": [
@@ -42,10 +47,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/react-router-dom": "^5.3.3",
-    "cross-env": "^7.0.3",
-    "gh-pages": "^4.0.0"
   }
 }
