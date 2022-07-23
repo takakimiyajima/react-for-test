@@ -20,7 +20,7 @@ const Component = <T extends unknown>({ className, columns, sort }: Props<T>) =>
         {columns.map((column, index) => {
           const percent = Math.floor((column.size / fullWeight) * 100)
 
-          return <TH key={`header-${index}`} column={column} sort={sort} width={`${percent}%`} />
+          return <TH key={`th-${index}`} column={column} sort={sort} width={`${percent}%`} />
         })}
       </tr>
     </thead>
@@ -28,7 +28,7 @@ const Component = <T extends unknown>({ className, columns, sort }: Props<T>) =>
 }
 
 const StyledComponent = styled(Component)`
-  background-color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme.gray};
 ` as typeof Component
 
 const TableHeader = <T extends unknown>(props: ContainerProps<T>) => {

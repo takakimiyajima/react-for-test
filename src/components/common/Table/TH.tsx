@@ -1,17 +1,7 @@
+import clsx from 'clsx'
 import styled from 'styled-components'
-
-type Sort = {
-  by?: string
-  order?: -1 | 1
-  setSortBy?: (sortBy: string) => void
-}
-
-type ColumnConfig<T> = {
-  label?: string
-  name: string
-  size: number
-  renderValue: React.FC<T>
-}
+import { DownIcon, UpIcon } from '@/components/common/Icon'
+import { Sort, ColumnConfig } from '@/entities/components/table'
 
 type ContainerProps<T> = {
   column: ColumnConfig<T>
@@ -23,24 +13,45 @@ type Props<T> = {
   className?: string
 } & ContainerProps<T>
 
-
-
-const Component = <T extends unknown>({ className, column, width, sort }: Props<T>) => {
+const Component = <T extends unknown>({ className, column, sort }: Props<T>) => {
   return (
-    <th className={className}
+    <th className={clsx(className, {
+      'clickable': !!sort?.setSortBy
+    })}
       onClick={() => sort?.setSortBy?.(column.name)}
     >
-      <div>
-        <p>{column.label?.toUpperCase()}</p>
-        {sort?.by === column.name && sort.order === -1 && "↓"}
-        {sort?.by === column.name && sort.order === 1 && '↑'}
+      <div className='content'>
+        <p className='label'>{column.label?.toUpperCase()}</p>
+        {sort?.by === column.name && sort.order === -1 && <DownIcon className='arrowIcon' />}
+        {sort?.by === column.name && sort.order === 1 && <UpIcon className='arrowIcon' />}
       </div>
     </th>
   )
 }
 
 const StyledComponent = styled(Component)`
-  background-color: ${(props) => props.theme.white};
+  padding: 8px;
+  width: ${(props) => props.width};
+  max-width: ${(props) => props.width};
+
+  .clickable {
+    cursor: 'pointer',
+  }
+
+  > .content {
+    display: 'flex';
+    align-items: 'center';
+
+    > .label {
+      font-weight: 'bold';
+      margin: 0;
+    }
+    > .arrowIcon {
+      margin-left: 8px;
+      width: 12px;
+      height: 12px;
+    }
+  }
 ` as typeof Component
 
 const TH = <T extends unknown>(props: ContainerProps<T>) => {

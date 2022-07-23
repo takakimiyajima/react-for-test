@@ -24,8 +24,8 @@ const getUserColumns = (
       renderValue: ({ phone }) => <p>{phone}</p>,
     },
     {
-      label: 'fullAddress',
-      name: 'fullAddress',
+      label: 'address',
+      name: 'address',
       size: 1,
       renderValue: ({ address }) => <p>{address}</p>,
     },
