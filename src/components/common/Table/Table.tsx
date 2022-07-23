@@ -1,25 +1,6 @@
 import styled from 'styled-components'
-import { TableHeader } from '@/components/common/Table/TableHeader'
-import { TableBody } from '@/components/common/Table/TableBody'
-
-type Pagination = {
-  page: number
-  totalPages: number
-  setPage: (page: number) => void
-}
-
-type Sort = {
-  by?: string
-  order?: -1 | 1
-  setSortBy?: (sortBy: string) => void
-}
-
-type ColumnConfig<T> = {
-  label?: string
-  name: string
-  size: number
-  renderValue: React.FC<T>
-}
+import { TableBody, TableHeader } from '@/components/common/Table'
+import { ColumnConfig, Sort, Pagination } from '@/entities/ui/table'
 
 type ContainerProps<T> = {
   columns: ColumnConfig<T>[]

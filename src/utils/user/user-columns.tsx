@@ -1,4 +1,4 @@
-import { ColumnConfig } from '@/entities/components/table'
+import { ColumnConfig } from '@/entities/ui/table'
 import { User, ParsedUser } from '@/entities/models/user'
 
 const getUserColumns = (

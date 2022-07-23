@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Sort, ColumnConfig } from '@/entities/components/table'
+import { Sort, ColumnConfig } from '@/entities/ui/table'
 import { TH } from './TH' 
 
 type ContainerProps<T> = {

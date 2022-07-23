@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ColumnConfig } from '@/entities/components/table'
+import { ColumnConfig } from '@/entities/ui/table'
 
 type TableRowProps<T> = {
   columns: ColumnConfig<T>[]

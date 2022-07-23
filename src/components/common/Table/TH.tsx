@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import styled from 'styled-components'
 import { DownIcon, UpIcon } from '@/components/common/Icon'
-import { Sort, ColumnConfig } from '@/entities/components/table'
+import { Sort, ColumnConfig } from '@/entities/ui/table'
 
 type ContainerProps<T> = {
   column: ColumnConfig<T>

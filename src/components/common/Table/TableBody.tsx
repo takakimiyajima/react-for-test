@@ -1,4 +1,4 @@
-import { ColumnConfig } from '@/entities/components/table'
+import { ColumnConfig } from '@/entities/ui/table'
 import { TableRow } from './TableRow'
 
 type TableBodyProps<T> = {
