@@ -21,15 +21,11 @@ export const UserContextProvider = ({ children }: UserContextProviderProps) => {
     return res.json()
   }
 
-  const { data, isLoading, error } = useQuery<User[]>(
-    'UserContext',
-    () => fetchUsers(),
-    {
-      retry: 0,
-      onSuccess: (data: User[]) => setUsers(data),
-      onError: () => console.log('error'),
-    },
-  )
+  const { data, isLoading, error } = useQuery<User[]>('UserContext', () => fetchUsers(), {
+    retry: 0,
+    onSuccess: (data: User[]) => setUsers(data),
+    onError: () => console.log('error'),
+  })
 
   const value = {
     users: users || data,

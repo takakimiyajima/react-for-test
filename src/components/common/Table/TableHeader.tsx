@@ -11,11 +11,7 @@ type Props<T> = {
   className?: string
 } & ContainerProps<T>
 
-const Component = <T extends unknown>({
-  className,
-  columns,
-  sort,
-}: Props<T>) => {
+const Component = <T extends unknown>({ className, columns, sort }: Props<T>) => {
   const fullWeight = columns.reduce((acc, value) => acc + value.size, 0)
 
   return (
@@ -24,14 +20,7 @@ const Component = <T extends unknown>({
         {columns.map((column, index) => {
           const percent = Math.floor((column.size / fullWeight) * 100)
 
-          return (
-            <TH
-              key={`th-${index}`}
-              column={column}
-              sort={sort}
-              width={`${percent}%`}
-            />
-          )
+          return <TH key={`th-${index}`} column={column} sort={sort} width={`${percent}%`} />
         })}
       </tr>
     </thead>

@@ -6,6 +6,7 @@ type ContainerProps = {
   type?: 'text' | 'number'
   placeholder?: string
   setValue: (value: string) => void
+  width?: number | string
 }
 
 type Props = {
@@ -22,7 +23,9 @@ const Component = ({
 }: Props) => {
   return (
     <div className={className}>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} className='label'>
+        {label}
+      </label>
       <input
         id={name}
         name={name}
@@ -36,17 +39,19 @@ const Component = ({
 }
 
 const StyledComponent = styled(Component)`
+  display: flex;
+  align-items: center;
   width: 100%;
   padding: 4px 16px;
 
-  .title {
-    text-align: center;
+  .label {
     font-weight: bold;
     font-size: 16px;
   }
   .input {
+    width: ${(props) => props.width ?? '200px'};
     margin-left: 8px;
-    padding: 4px;
+    padding: 8px 4px;
     border: solid 1px ${(props) => props.theme.gray};
     border-radius: 4px;
   }

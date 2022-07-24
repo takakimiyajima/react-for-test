@@ -13,11 +13,7 @@ type Props<T> = {
   className?: string
 } & ContainerProps<T>
 
-const Component = <T extends unknown>({
-  className,
-  column,
-  sort,
-}: Props<T>) => {
+const Component = <T extends unknown>({ className, column, sort }: Props<T>) => {
   return (
     <th
       className={clsx(className, {
@@ -27,12 +23,8 @@ const Component = <T extends unknown>({
     >
       <div className='content'>
         <p className='label'>{column.label?.toUpperCase()}</p>
-        {sort?.by === column.name && sort.order === -1 && (
-          <DownIcon className='arrowIcon' />
-        )}
-        {sort?.by === column.name && sort.order === 1 && (
-          <UpIcon className='arrowIcon' />
-        )}
+        {sort?.by === column.name && sort.order === -1 && <DownIcon className='arrowIcon' />}
+        {sort?.by === column.name && sort.order === 1 && <UpIcon className='arrowIcon' />}
       </div>
     </th>
   )

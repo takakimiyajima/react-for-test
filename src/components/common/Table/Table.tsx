@@ -13,11 +13,7 @@ type Props<T> = {
   className?: string
 } & ContainerProps<T>
 
-const Component = <T extends unknown>({
-  className,
-  columns,
-  data,
-}: Props<T>) => {
+const Component = <T extends unknown>({ className, columns, data }: Props<T>) => {
   return (
     <table className={className}>
       <TableHeader columns={columns} />

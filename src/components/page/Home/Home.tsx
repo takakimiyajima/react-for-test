@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import { Table } from '@/components/common/Table'
-import { TextField } from '@/components/common/BaseInput'
+import { Dropdown, TextField } from '@/components/common/BaseInput'
 import { getUserColumns } from '@/utils/user/user-columns'
 import { parsedUsers } from '@/utils/user/parsed-users'
 import { User } from '@/entities/models/user'
@@ -10,6 +10,21 @@ import { useUserContext } from '@/hooks'
 type Props = {
   className?: string
 }
+
+const DOMAINS = [
+  {
+    value: '.com',
+    label: '.com',
+  },
+  {
+    value: '.net',
+    label: '.net',
+  },
+  {
+    value: 'other',
+    label: 'other',
+  },
+]
 
 const Component = ({ className }: Props) => {
   const { users } = useUserContext()
@@ -23,16 +38,13 @@ const Component = ({ className }: Props) => {
 
     let modUsers: User[] = []
     if (selectedDropdown) {
-      modUsers = users.filter(({ website }) =>
-        website.includes(selectedDropdown),
-      )
+      modUsers = users.filter(({ website }) => website.includes(selectedDropdown))
     }
 
     if (searchKeyword) {
       const target = modUsers.length ? modUsers : users
       modUsers = target.filter(
-        ({ name, email }) =>
-          name.includes(searchKeyword) || email.includes(searchKeyword),
+        ({ name, email }) => name.includes(searchKeyword) || email.includes(searchKeyword),
       )
     }
 
@@ -52,19 +64,12 @@ const Component = ({ className }: Props) => {
         setValue={setSearchKeyword}
         placeholder='Input name or email'
       />
-
-      <p>Domain filter</p>
-      <label>
-        <select
-          name='domain'
-          onChange={(e) => setSelectedDropdown(e.target.value)}
-        >
-          <option value=''>No selected</option>
-          <option value='.com'>.com</option>
-          <option value='.net'>.net</option>
-          <option value='other'>other</option>
-        </select>
-      </label>
+      <Dropdown
+        name='domain'
+        options={DOMAINS}
+        value={selectedDropdown}
+        setValue={setSelectedDropdown}
+      />
       <Table columns={getUserColumns()} data={parsedUsers(filteredUsers())} />
     </div>
   )
