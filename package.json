@@ -3,18 +3,12 @@
   "version": "0.1.0",
   "homepage": "https://takakimiyajima.github.io/react-for-test",
   "private": true,
-  "engines": {
-    "node": "14.x",
-    "yarn": "1.x"
-  },
   "scripts": {
     "dev": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
     "deploy": "yarn build && gh-pages -d build",
-    "heroku-postbuild": "npm run build",
-    "start": "serve -s build",
     "lint:base": "eslint --config .eslintrc.js --cache",
     "lint:check": "yarn lint:base \"./src/**/*.{ts,tsx}\"",
     "lint:fix": "yarn lint:check --fix"
@@ -53,8 +47,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "gh-pages": "^4.0.0",
     "prettier": "^2.7.1",
-    "react-app-rewired": "^2.2.1",
-    "serve": "^14.0.1"
+    "react-app-rewired": "^2.2.1"
   },
   "eslintConfig": {
     "extends": [
