@@ -9,7 +9,7 @@
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
     "deploy": "yarn build && gh-pages -d build",
-    "heroku-postbuild": "yarn build",
+    "heroku-postbuild": "npm run build",
     "lint:base": "eslint --config .eslintrc.js --cache",
     "lint:check": "yarn lint:base \"./src/**/*.{ts,tsx}\"",
     "lint:fix": "yarn lint:check --fix"
