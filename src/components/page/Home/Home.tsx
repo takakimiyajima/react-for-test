@@ -78,28 +78,15 @@ const Component = ({ className }: Props) => {
   )
 }
 
-const StyledComponent = styled(Component)`
-  display: flex;
-  flex-direction: column;
-
-  .title {
+const Home = styled(Component)`
+  > .title {
     text-align: center;
     font-weight: bold;
     padding: 16px;
   }
-  .fieldArea {
+  > .fieldArea {
     margin-top: 16px;
-    display: flex;
-    justify-content: start;
-
-    /* .fields {
-
-    } */
   }
 `
-
-const Home = () => {
-  return <StyledComponent />
-}
 
 export { Home }

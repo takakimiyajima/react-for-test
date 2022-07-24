@@ -45,6 +45,7 @@ const StyledComponent = styled(Component)`
   padding: 4px 16px;
 
   .label {
+    width: 60px;
     font-weight: bold;
     font-size: 16px;
   }
