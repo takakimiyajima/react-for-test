@@ -31,24 +31,22 @@ const Component = ({ className }: Props) => {
   const [searchKeyword, setSearchKeyword] = useState<string>('')
   const [selectedDropdown, setSelectedDropdown] = useState<string>('')
 
+  const filteredUsersBySearchKey = (): User[] => {
+    return searchKeyword
+      ? users.filter(
+          ({ name, email }) => name.includes(searchKeyword) || email.includes(searchKeyword),
+        )
+      : users
+  }
+
   const filteredUsers = (): User[] => {
-    if (!searchKeyword && !selectedDropdown) {
-      return users
-    }
-
-    let modUsers: User[] = []
-    if (selectedDropdown) {
-      modUsers = users.filter(({ website }) => website.includes(selectedDropdown))
-    }
-
-    if (searchKeyword) {
-      const target = modUsers.length ? modUsers : users
-      modUsers = target.filter(
-        ({ name, email }) => name.includes(searchKeyword) || email.includes(searchKeyword),
-      )
-    }
-
-    return modUsers
+    return selectedDropdown
+      ? filteredUsersBySearchKey().filter(({ website }) => {
+          return selectedDropdown === 'other'
+            ? !website.includes('.com') && !website.includes('.net')
+            : website.includes(selectedDropdown)
+        })
+      : filteredUsersBySearchKey()
   }
 
   if (!users) {
@@ -58,30 +56,45 @@ const Component = ({ className }: Props) => {
   return (
     <div className={className}>
       <h1 className='title'>H1 Title</h1>
-      <TextField
-        name='search-key'
-        label='Search'
-        setValue={setSearchKeyword}
-        placeholder='Input name or email'
-      />
-      <Dropdown
-        name='domain'
-        options={DOMAINS}
-        value={selectedDropdown}
-        setValue={setSelectedDropdown}
-      />
-      <Table columns={getUserColumns()} data={parsedUsers(filteredUsers())} />
+      <div className='fieldArea'>
+        <TextField
+          name='search-key'
+          label='Search'
+          setValue={setSearchKeyword}
+          placeholder='Input name or email'
+        />
+        <Dropdown
+          label='Domain'
+          name='domain'
+          options={DOMAINS}
+          value={selectedDropdown}
+          setValue={setSelectedDropdown}
+        />
+      </div>
+      <div>
+        <Table columns={getUserColumns()} data={parsedUsers(filteredUsers())} />
+      </div>
     </div>
   )
 }
 
 const StyledComponent = styled(Component)`
+  display: flex;
+  flex-direction: column;
+
   .title {
     text-align: center;
     font-weight: bold;
+    padding: 16px;
   }
-  .search {
-    margin-left: 8px;
+  .fieldArea {
+    margin-top: 16px;
+    display: flex;
+    justify-content: start;
+
+    /* .fields {
+
+    } */
   }
 `
 

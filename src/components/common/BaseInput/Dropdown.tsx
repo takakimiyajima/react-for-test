@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 type ContainerProps = {
+  label: string
   name: string
   defaultValue?: string
   value?: string
@@ -16,11 +17,12 @@ type Props = {
   className?: string
 } & ContainerProps
 
-const Component = ({ className, name, value = '', options = [], setValue }: Props) => {
+const Component = ({ className, name, label, value = '', options = [], setValue }: Props) => {
   return (
     <div className={className}>
-      <label className='label'>test</label>
+      <label className='label'>{label}</label>
       <select className='dropdown' value={value} onChange={(e) => setValue(e.target.value)}>
+        <option value={''}>Non-selected</option>
         {options.map(({ label, value }, index) => (
           <option key={`${name}-${index}`} value={value}>
             {label}
