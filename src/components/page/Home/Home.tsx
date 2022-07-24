@@ -69,7 +69,7 @@ const Component = ({ className }: Props) => {
         />
         <Dropdown
           label='Domain'
-          name='domain'
+          name='Domain'
           options={DOMAINS}
           value={selectedDropdown}
           setValue={setSelectedDropdown}
