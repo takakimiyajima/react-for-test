@@ -40,7 +40,7 @@ const Component = ({
 
 const StyledComponent = styled(Component)`
   display: flex;
-  align-items: center;
+  flex-direction: column;
   width: 100%;
   padding: 4px 16px;
 
@@ -51,7 +51,6 @@ const StyledComponent = styled(Component)`
   }
   .input {
     width: ${(props) => props.width ?? '200px'};
-    margin-left: 8px;
     padding: 8px 4px;
     border: solid 1px ${(props) => props.theme.gray};
     border-radius: 4px;

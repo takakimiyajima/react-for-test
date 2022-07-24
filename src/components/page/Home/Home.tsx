@@ -13,6 +13,10 @@ type Props = {
 
 const DOMAINS = [
   {
+    value: '',
+    label: 'non-selected',
+  },
+  {
     value: '.com',
     label: '.com',
   },
@@ -71,7 +75,7 @@ const Component = ({ className }: Props) => {
           setValue={setSelectedDropdown}
         />
       </div>
-      <div>
+      <div className='table'>
         <Table columns={getUserColumns()} data={parsedUsers(filteredUsers())} />
       </div>
     </div>
@@ -85,6 +89,9 @@ const Home = styled(Component)`
     padding: 16px;
   }
   > .fieldArea {
+    margin-top: 16px;
+  }
+  > .table {
     margin-top: 16px;
   }
 `
