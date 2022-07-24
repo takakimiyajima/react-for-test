@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "homepage": "https://takakimiyajima.github.io/react-for-test",
   "private": true,
+  "engines": {
+    "node": "14.x",
+    "yarn": "1.x"
+  },
   "scripts": {
     "dev": "react-app-rewired start",
     "build": "react-app-rewired build",
