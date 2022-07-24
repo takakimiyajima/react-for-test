@@ -19,12 +19,14 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    "prettier/prettier": "error",
-    "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-unnecessary-type-constraint": "off",
+    eqeqeq: ['error', 'always', { null: 'ignore' }],
+    'prettier/prettier': 'error',
+    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-unnecessary-type-constraint': 'off',
   },
   ignorePatterns: [
     'node_modules',
     '**/dist/**/*',
+    'build',
   ],
 };
