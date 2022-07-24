@@ -39,8 +39,8 @@ const Component = ({
 }
 
 const StyledComponent = styled(Component)`
-  color: ${(props) => props.color ? props.color : 'currentColor'};
-  cursor:  ${(props) => props.onClick ? 'pointer' : 'inherit'};
+  color: ${(props) => (props.color ? props.color : 'currentColor')};
+  cursor: ${(props) => (props.onClick ? 'pointer' : 'inherit')};
 `
 
 const SvgIcon = (props: SvgIconProps) => {

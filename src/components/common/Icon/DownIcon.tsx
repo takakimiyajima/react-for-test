@@ -3,7 +3,7 @@ import { SvgIconProps, SvgIcon } from './SvgIcon'
 
 type DownIconProps = SvgIconProps
 
-const DownIcon: FC<DownIconProps> = props => {
+const DownIcon: FC<DownIconProps> = (props) => {
   return (
     <SvgIcon small {...props}>
       <path

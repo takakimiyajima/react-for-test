@@ -1,9 +1,7 @@
 import { ColumnConfig } from '@/entities/ui/table'
-import { User, ParsedUser } from '@/entities/models/user'
+import { ParsedUser } from '@/entities/models/user'
 
-const getUserColumns = (
-  users: User[],
-): ColumnConfig<ParsedUser>[] => {
+const getUserColumns = (): ColumnConfig<ParsedUser>[] => {
   return [
     {
       label: 'name',

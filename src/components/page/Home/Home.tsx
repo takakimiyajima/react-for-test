@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import { Table } from '@/components/common/Table/Table'
+import { Table } from '@/components/common/Table'
+import { TextField } from '@/components/common/BaseInput'
 import { getUserColumns } from '@/utils/user/user-columns'
 import { parsedUsers } from '@/utils/user/parsed-users'
 import { User } from '@/entities/models/user'
@@ -15,52 +16,56 @@ const Component = ({ className }: Props) => {
   const [searchKeyword, setSearchKeyword] = useState<string>('')
   const [selectedDropdown, setSelectedDropdown] = useState<string>('')
 
-  const filteredUsers = () => {
+  const filteredUsers = (): User[] => {
     if (!searchKeyword && !selectedDropdown) {
       return users
     }
 
     let modUsers: User[] = []
     if (selectedDropdown) {
-      modUsers = users.filter(({ website }) => website.includes(selectedDropdown))
+      modUsers = users.filter(({ website }) =>
+        website.includes(selectedDropdown),
+      )
     }
 
     if (searchKeyword) {
-      const target = modUsers.length ? modUsers: users
-      modUsers = target.filter(({ name, email }) => name.includes(searchKeyword) || email.includes(searchKeyword))
+      const target = modUsers.length ? modUsers : users
+      modUsers = target.filter(
+        ({ name, email }) =>
+          name.includes(searchKeyword) || email.includes(searchKeyword),
+      )
     }
 
     return modUsers
   }
 
-  if (!filteredUsers().length) {
+  if (!users) {
     return <div>Nothing</div>
   }
 
   return (
     <div className={className}>
       <h1 className='title'>H1 Title</h1>
-      <div>
-        <label htmlFor="search-keyword">Search</label>
-        <input
-          id="search-keyword"
-          className="search"
-          type="text"
-          onChange={(e) => setSearchKeyword(e.target.value)}
-          placeholder={"Input name or email"}
-        />
-      </div>
+      <TextField
+        name='search-key'
+        label='Search'
+        setValue={setSearchKeyword}
+        placeholder='Input name or email'
+      />
 
       <p>Domain filter</p>
       <label>
-        <select name="domain" onChange={(e) => setSelectedDropdown(e.target.value)}>
-          <option value="">No selected</option>
-          <option value=".com">.com</option>
-          <option value=".net">.net</option>
-          <option value="other">other</option>
+        <select
+          name='domain'
+          onChange={(e) => setSelectedDropdown(e.target.value)}
+        >
+          <option value=''>No selected</option>
+          <option value='.com'>.com</option>
+          <option value='.net'>.net</option>
+          <option value='other'>other</option>
         </select>
       </label>
-      <Table columns={getUserColumns(users)} data={parsedUsers(users)} />
+      <Table columns={getUserColumns()} data={parsedUsers(filteredUsers())} />
     </div>
   )
 }

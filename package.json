@@ -8,7 +8,10 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
-    "deploy": "yarn build && gh-pages -d build"
+    "deploy": "yarn build && gh-pages -d build",
+    "lint:base": "eslint --config .eslintrc.js --cache",
+    "lint:check": "yarn lint:base \"./src/**/*.{ts,tsx}\"",
+    "lint:fix": "yarn lint:check --fix"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -31,8 +34,18 @@
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.25",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
     "cross-env": "^7.0.3",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "gh-pages": "^4.0.0",
+    "prettier": "^2.7.1",
     "react-app-rewired": "^2.2.1"
   },
   "eslintConfig": {

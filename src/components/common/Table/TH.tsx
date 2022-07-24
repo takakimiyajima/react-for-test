@@ -13,17 +13,26 @@ type Props<T> = {
   className?: string
 } & ContainerProps<T>
 
-const Component = <T extends unknown>({ className, column, sort }: Props<T>) => {
+const Component = <T extends unknown>({
+  className,
+  column,
+  sort,
+}: Props<T>) => {
   return (
-    <th className={clsx(className, {
-      'clickable': !!sort?.setSortBy
-    })}
+    <th
+      className={clsx(className, {
+        clickable: !!sort?.setSortBy,
+      })}
       onClick={() => sort?.setSortBy?.(column.name)}
     >
       <div className='content'>
         <p className='label'>{column.label?.toUpperCase()}</p>
-        {sort?.by === column.name && sort.order === -1 && <DownIcon className='arrowIcon' />}
-        {sort?.by === column.name && sort.order === 1 && <UpIcon className='arrowIcon' />}
+        {sort?.by === column.name && sort.order === -1 && (
+          <DownIcon className='arrowIcon' />
+        )}
+        {sort?.by === column.name && sort.order === 1 && (
+          <UpIcon className='arrowIcon' />
+        )}
       </div>
     </th>
   )
@@ -35,7 +44,7 @@ const StyledComponent = styled(Component)`
   max-width: ${(props) => props.width};
 
   .clickable {
-    cursor: 'pointer',
+    cursor: 'pointer';
   }
 
   > .content {

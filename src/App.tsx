@@ -14,8 +14,8 @@ const App = () => (
       <QueryClientProvider client={queryClient}>
         <UserContextProvider>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/hoge/:id" element={<Hoge />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/hoge/:id' element={<Hoge />} />
           </Routes>
         </UserContextProvider>
       </QueryClientProvider>

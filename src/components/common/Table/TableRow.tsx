@@ -10,7 +10,11 @@ type Props<T> = {
   className?: string
 } & TableRowProps<T>
 
-const Component = <T extends unknown>({ className, columns, item }: Props<T>) => {
+const Component = <T extends unknown>({
+  className,
+  columns,
+  item,
+}: Props<T>) => {
   return (
     <tr className={className}>
       {columns.map(({ name, renderValue }, index) => (

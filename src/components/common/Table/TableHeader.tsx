@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Sort, ColumnConfig } from '@/entities/ui/table'
-import { TH } from './TH' 
+import { TH } from './TH'
 
 type ContainerProps<T> = {
   columns: ColumnConfig<T>[]
@@ -11,7 +11,11 @@ type Props<T> = {
   className?: string
 } & ContainerProps<T>
 
-const Component = <T extends unknown>({ className, columns, sort }: Props<T>) => {
+const Component = <T extends unknown>({
+  className,
+  columns,
+  sort,
+}: Props<T>) => {
   const fullWeight = columns.reduce((acc, value) => acc + value.size, 0)
 
   return (
@@ -20,7 +24,14 @@ const Component = <T extends unknown>({ className, columns, sort }: Props<T>) =>
         {columns.map((column, index) => {
           const percent = Math.floor((column.size / fullWeight) * 100)
 
-          return <TH key={`th-${index}`} column={column} sort={sort} width={`${percent}%`} />
+          return (
+            <TH
+              key={`th-${index}`}
+              column={column}
+              sort={sort}
+              width={`${percent}%`}
+            />
+          )
         })}
       </tr>
     </thead>

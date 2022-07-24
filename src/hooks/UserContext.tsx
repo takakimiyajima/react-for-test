@@ -13,9 +13,7 @@ type UserContextProviderProps = {
 
 export const UserContext = createContext<Context | undefined>(undefined)
 
-export const UserContextProvider: React.FC<UserContextProviderProps> = ({
-  children,
-}) => {
+export const UserContextProvider = ({ children }: UserContextProviderProps) => {
   const [users, setUsers] = useState<User[]>([])
 
   const fetchUsers = async () => {
@@ -23,11 +21,15 @@ export const UserContextProvider: React.FC<UserContextProviderProps> = ({
     return res.json()
   }
 
-  const { data, isLoading, error } = useQuery<User[]>('UserContext', () => fetchUsers(), {
-    retry: 0,
-    onSuccess: (data: User[]) => setUsers(data),
-    onError: () => console.log('error'),
-  })
+  const { data, isLoading, error } = useQuery<User[]>(
+    'UserContext',
+    () => fetchUsers(),
+    {
+      retry: 0,
+      onSuccess: (data: User[]) => setUsers(data),
+      onError: () => console.log('error'),
+    },
+  )
 
   const value = {
     users: users || data,

@@ -5,7 +5,7 @@ export const parsedUsers = (users: User[]): ParsedUser[] => {
     const { suite, street, city, zipcode } = user.address
     return {
       ...user,
-      address: `${suite} ${street} ${city} ${zipcode}`.trim()
+      address: `${suite} ${street} ${city} ${zipcode}`.trim(),
     }
   })
 }

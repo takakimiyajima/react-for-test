@@ -3,7 +3,7 @@ import { SvgIconProps, SvgIcon } from './SvgIcon'
 
 type UpIconProps = SvgIconProps
 
-const UpIcon: React.FC<UpIconProps> = props => {
+const UpIcon: React.FC<UpIconProps> = (props) => {
   return (
     <SvgIcon small {...props}>
       <path
