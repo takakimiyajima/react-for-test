@@ -9,7 +9,7 @@ import { THEME } from '@/constants/style'
 const queryClient = new QueryClient()
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <ThemeProvider theme={THEME}>
       <QueryClientProvider client={queryClient}>
         <UserContextProvider>
