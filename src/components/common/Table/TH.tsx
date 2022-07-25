@@ -32,8 +32,8 @@ const Component = <T extends unknown>({ className, column, sort }: Props<T>) => 
 
 const StyledComponent = styled(Component)`
   padding: 8px;
-  width: ${(props) => props.width};
-  max-width: ${(props) => props.width};
+  width: ${({ width }) => width};
+  max-width: ${({ width }) => width};
 
   .clickable {
     cursor: 'pointer';

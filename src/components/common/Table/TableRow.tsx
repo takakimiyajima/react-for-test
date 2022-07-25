@@ -25,7 +25,7 @@ const Component = <T extends unknown>({ className, columns, item }: Props<T>) =>
 const StyledComponent = styled(Component)`
   > .row {
     padding: 4px 8px;
-    border-bottom: solid 0.5px ${(props) => props.theme.gray};
+    border-bottom: solid 0.5px ${({ theme }) => theme.color.gray};
   }
 ` as typeof Component
 

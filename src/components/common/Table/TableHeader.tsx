@@ -28,7 +28,7 @@ const Component = <T extends unknown>({ className, columns, sort }: Props<T>) =>
 }
 
 const StyledComponent = styled(Component)`
-  background-color: ${(props) => props.theme.gray};
+  background-color: ${({ theme }) => theme.color.gray};
 ` as typeof Component
 
 const TableHeader = <T extends unknown>(props: ContainerProps<T>) => {

@@ -15,7 +15,7 @@ const Component = ({ className }: Props) => {
 }
 
 const StyledComponent = styled(Component)`
-  background-color: ${({ theme }) => theme.gray};
+  background-color: ${({ theme }) => theme.color.gray};
   width: ${({ orientation, thickness, width }) =>
     width ? width : orientation === 'vertical' ? thickness : '100%'};
   height: ${({ orientation, thickness }) => (orientation === 'horizontal' ? thickness : '100%')};

@@ -50,9 +50,9 @@ const StyledComponent = styled(Component)`
     font-size: 16px;
   }
   .input {
-    width: ${(props) => props.width ?? '200px'};
+    width: ${({ width }) => width ?? '200px'};
     padding: 8px 4px;
-    border: solid 1px ${(props) => props.theme.gray};
+    border: solid 1px ${({ theme }) => theme.color.gray};
     border-radius: 4px;
   }
 `

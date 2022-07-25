@@ -45,7 +45,7 @@ const StyledComponent = styled(Component)`
   }
 
   > .select {
-    width: ${(props) => props.width ?? '200px'};
+    width: ${({ width }) => width ?? '200px'};
   }
 `
 
