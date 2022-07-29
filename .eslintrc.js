@@ -8,7 +8,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'plugin:react/recommended',
-    'prettier'
+    'prettier',
   ],
   plugins: ['@typescript-eslint', 'react', 'prettier'],
   parserOptions: {
@@ -24,9 +24,5 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-unnecessary-type-constraint': 'off',
   },
-  ignorePatterns: [
-    'node_modules',
-    '**/dist/**/*',
-    'build',
-  ],
-};
+  ignorePatterns: ['node_modules', '**/dist/**/*', 'build'],
+}

@@ -5,7 +5,7 @@ import { Dropdown, TextField } from '@/components/common/BaseInput'
 import { getUserColumns } from '@/utils/user/user-columns'
 import { parsedUsers } from '@/utils/user/parsed-users'
 import { User } from '@/entities/models/user'
-import { useUserContext } from '@/hooks'
+import { useUserContext } from '@/hooks/user'
 
 type Props = {
   className?: string

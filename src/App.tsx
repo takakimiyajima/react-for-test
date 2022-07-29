@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { ThemeProvider } from 'styled-components'
 import { Home } from '@/components/page/Home/Home'
 import { Hoge } from '@/components/page/Hoge/Hoge'
-import { UserContextProvider } from '@/hooks/UserContext'
+import { UserContextProvider } from '@/hooks'
 import { THEME } from '@/constants/style'
 
 const queryClient = new QueryClient()
