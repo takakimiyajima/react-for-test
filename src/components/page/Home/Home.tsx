@@ -83,6 +83,8 @@ const Component = ({ className }: Props) => {
 }
 
 const Home = styled(Component)`
+  padding: 24px;
+
   > .title {
     text-align: center;
     font-weight: bold;

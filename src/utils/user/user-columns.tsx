@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { ColumnConfig } from '@/entities/ui/table'
 import { ParsedUser } from '@/entities/models/user'
 
@@ -7,7 +8,10 @@ const getUserColumns = (): ColumnConfig<ParsedUser>[] => {
       label: 'name',
       name: 'name',
       size: 1,
-      renderValue: ({ name }) => <p>{name}</p>,
+      renderValue: ({ id, name }) => {
+        // return <p>{name}</p>
+        return <Link to={`/users/${id}/todos`}>{name}</Link>
+      },
     },
     {
       label: 'email',
